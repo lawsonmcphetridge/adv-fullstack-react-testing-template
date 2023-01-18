@@ -2,7 +2,7 @@ import { render, fireEvent } from '@testing-library/react';
 import ShoppingListForm from './ShoppingListForm';
 
 describe('ShoppingListForm', () => {
-  it('can create a new comment', () => {
+  it('can create a new item', () => {
     const onSubmit = jest.fn();
     const { getByTestId } = render(
       <ShoppingListForm id={1} onSubmit={onSubmit} />
