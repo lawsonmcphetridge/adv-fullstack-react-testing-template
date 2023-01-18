@@ -21,4 +21,30 @@ describe('ShoppingListForm', () => {
       shoppingItems: [],
     });
   });
+
+  it('submits the form', () => {
+    const onSubmit = jest.fn();
+    const { getByTestId } = render(
+      <ShoppingListForm id="new" onSubmit={onSubmit} />
+    );
+    const input = getByTestId('shopping-list-form-name-new');
+    const submitButton = getByTestId(
+      'shopping-list-form-submit-button-new'
+    );
+
+    fireEvent.change(input, {
+      target: { value: 'newShoppingList' },
+    });
+    fireEvent.submit(submitButton);
+
+    expect(onSubmit).toHaveBeenCalledWith({
+      id: null,
+      name: 'newShoppingList',
+      shoppingItems: [],
+    });
+  });
+    
+    
+    
+    
 });
